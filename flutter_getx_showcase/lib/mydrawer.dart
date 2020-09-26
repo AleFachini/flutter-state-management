@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_getx_showcase/controllers/homecontroller.dart';
-import 'package:flutter_getx_showcase/screens/navigation.dart';
+import 'file:///D:/GitHubRepos/flutter-state-management/flutter_getx_showcase/lib/screens/navigation/navigation.dart';
 import 'package:get/route_manager.dart';
 import 'package:get/get.dart';
 
