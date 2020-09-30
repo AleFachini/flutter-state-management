@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_getx_showcase/apppages.dart';
 import 'package:flutter_getx_showcase/mydrawer.dart';
 import 'file:///D:/GitHubRepos/flutter-state-management/flutter_getx_showcase/lib/screens/bindingetx/bindings.dart';
 import 'package:flutter_getx_showcase/screens/home.dart';
+import 'package:flutter_getx_showcase/screens/navigation/navtwo.dart';
 import 'file:///D:/GitHubRepos/flutter-state-management/flutter_getx_showcase/lib/screens/navigation/navigation.dart';
 import 'file:///D:/GitHubRepos/flutter-state-management/flutter_getx_showcase/lib/screens/popups/popups.dart';
 import 'file:///D:/GitHubRepos/flutter-state-management/flutter_getx_showcase/lib/screens/statecontroller/statecontroller.dart';
@@ -28,6 +30,8 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
+      initialRoute: '/',
+      getPages: AppPages.pages,
       home: Scaffold(
         appBar: AppBar(
           title: Text('GetX State Management'),
