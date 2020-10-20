@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'navone.dart';
 
 class Navigation extends StatelessWidget {
+  var data;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -13,7 +14,7 @@ class Navigation extends StatelessWidget {
           child: FlatButton(
             color: Colors.blue,
             onPressed: () {
-              Get.to(Navone()); // navigate by your nested route by index
+              Get.to(Navone());
             },
             child: Text('GetX Navigation'),
           ),
@@ -22,8 +23,7 @@ class Navigation extends StatelessWidget {
           child: FlatButton(
             color: Colors.orange,
             onPressed: () {
-              Get.toNamed(
-                  Routes.NAVTWO); // navigate by your nested route by index
+              Get.toNamed(Routes.NAVTWO);
             },
             child: Text('GetX Named Navigation'),
           ),
@@ -32,10 +32,30 @@ class Navigation extends StatelessWidget {
           child: FlatButton(
             color: Colors.greenAccent,
             onPressed: () {
-              Get.toNamed(
-                  Routes.NAVTHREE); // navigate by your nested route by index
+              Get.toNamed(Routes.NAVTHREE);
             },
             child: Text('GetX Nested Navigation'),
+          ),
+        ),
+        Center(
+          child: FlatButton(
+            color: Colors.purpleAccent,
+            onPressed: () {
+              Get.toNamed(Routes.NAVFOUR, arguments: 'Get is the best');
+            },
+            child: Text('GetX Send Data'),
+          ),
+        ),
+        Center(
+          child: FlatButton(
+            color: Colors.blueGrey,
+            onPressed: () async {
+              data = await Get.toNamed(Routes.NAVFIVE);
+              //NOTE: for more uses i should trigger a state change
+              //and process it accordingly
+              print(data);
+            },
+            child: Text('GetX Receive Data'),
           ),
         ),
       ],

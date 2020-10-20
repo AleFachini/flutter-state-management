@@ -1,17 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_getx_showcase/apppages.dart';
 import 'package:flutter_getx_showcase/mydrawer.dart';
-import 'file:///D:/GitHubRepos/flutter-state-management/flutter_getx_showcase/lib/screens/bindingetx/bindings.dart';
+import 'package:flutter_getx_showcase/screens/bindingetx/bindings.dart';
 import 'package:flutter_getx_showcase/screens/home.dart';
 import 'package:flutter_getx_showcase/screens/navigation/navtwo.dart';
-import 'file:///D:/GitHubRepos/flutter-state-management/flutter_getx_showcase/lib/screens/navigation/navigation.dart';
-import 'file:///D:/GitHubRepos/flutter-state-management/flutter_getx_showcase/lib/screens/popups/popups.dart';
-import 'file:///D:/GitHubRepos/flutter-state-management/flutter_getx_showcase/lib/screens/statecontroller/statecontroller.dart';
-import 'file:///D:/GitHubRepos/flutter-state-management/flutter_getx_showcase/lib/screens/storagegetx/storage.dart';
-import 'file:///D:/GitHubRepos/flutter-state-management/flutter_getx_showcase/lib/screens/validationgetx/validation.dart';
-import 'file:///D:/GitHubRepos/flutter-state-management/flutter_getx_showcase/lib/screens/workers/workers.dart';
+import 'package:flutter_getx_showcase/screens/navigation/navigation.dart';
+import 'package:flutter_getx_showcase/screens/popups/popups.dart';
+import 'package:flutter_getx_showcase/screens/statecontroller/statecontroller.dart';
+import 'package:flutter_getx_showcase/screens/storagegetx/storage.dart';
+import 'package:flutter_getx_showcase/screens/validationgetx/validation.dart';
+import 'package:flutter_getx_showcase/screens/workers/workers.dart';
 import 'package:get/get.dart';
-
 import 'controllers/homecontroller.dart';
 
 void main() {
@@ -63,7 +62,7 @@ class MyApp extends StatelessWidget {
           onPressed: () => {
             drawerController.goToState(DrawerStatus.home),
           },
-          tooltip: 'Increment',
+          tooltip: 'Back to HOME',
           child: Icon(Icons.arrow_back),
         ),
       ),
