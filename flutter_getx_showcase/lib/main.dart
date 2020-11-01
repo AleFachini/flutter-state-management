@@ -11,9 +11,11 @@ import 'package:flutter_getx_showcase/screens/storagegetx/storage.dart';
 import 'package:flutter_getx_showcase/screens/validationgetx/validation.dart';
 import 'package:flutter_getx_showcase/screens/workers/workers.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 import 'controllers/homecontroller.dart';
 
-void main() {
+void main() async {
+  await GetStorage.init();
   runApp(MyApp());
 }
 

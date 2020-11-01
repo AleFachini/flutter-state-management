@@ -1,9 +1,11 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class Controllerforvalidation extends GetxController {
   final email = ''.obs;
   final pass = ''.obs;
   final enableSend = false.obs;
+  final passwordSnackbar = true.obs;
 
   void validateemail(String emailvalue) {
     print("debounce triggered");
@@ -16,23 +18,27 @@ class Controllerforvalidation extends GetxController {
     //isnumericOnly
     //isAlphabetOnly
     //<isLengthGreaterOrEqual
-    //checkfor uppercase
-    bool checkUppercase = _hasUppercase(passvalue);
-    print('checkUppercase: ${checkUppercase}');
-  }
-
-  bool _hasUppercase(String string) {
-    bool hasUppercase = false;
-    var iterablefromString = string.split('');
-    for (var char in iterablefromString) {
-      if (char == char.toUpperCase()) {
-        hasUppercase = true;
-      } else {
-        hasUppercase = false;
-      }
+    //check for uppercase
+    bool validPassword = GetUtils.isLengthGreaterOrEqual(passvalue, 8) &
+        (!GetUtils.isNumericOnly(passvalue)) &
+        !GetUtils.isAlphabetOnly(passvalue) &
+        (GetUtils.hasCapitalletter(passvalue));
+    print('validpassword: ${validPassword}');
+    passwordSnackbar.value = validPassword;
+    if (validPassword == false) {
+      Get.snackbar(
+        "Weak Password!", // title
+        "Requires at least: one Uppercase, one Lowercase, one number and minimum 8 characters.", // message
+        backgroundColor: Colors.white,
+        snackPosition: SnackPosition.BOTTOM,
+        icon: Icon(Icons.alarm),
+        shouldIconPulse: true,
+        barBlur: 20,
+        isDismissible: true,
+        duration: Duration(seconds: 4),
+      );
     }
-    print('hasUppercase: ${hasUppercase}');
-    return hasUppercase;
+    return;
   }
 
   Worker _worker;
@@ -44,6 +50,10 @@ class Controllerforvalidation extends GetxController {
     /// Anti DDos - Called every time the user stops typing for 1 second, for example.
     debounce(email, (_) => validateemail(email.value),
         time: Duration(milliseconds: 750));
+
+    /// Anti DDos - Called every time the user stops typing for 1 second, for example.
+    debounce(pass, (_) => validatepass(pass.value),
+        time: Duration(milliseconds: 1000));
   }
 
   disposeWorker() {
